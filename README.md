@@ -1,6 +1,7 @@
 # mcepy
 
-`mcepy` is a small Python package for stable dimensionality reduction via **Median Consensus Embedding (MCE)**, based on the paper **“Median Consensus Embedding for Dimensionality Reduction”**.
+`mcepy` is a Python library for stable dimensionality reduction via **Median Consensus Embedding (MCE)**, based on the paper [**Median Consensus Embedding for Dimensionality Reduction**](
+https://doi.org/10.48550/arXiv.2503.08103).
 
 ## Installation
 
@@ -20,7 +21,8 @@ pip install -e .
 
 ### Rebuild the Cython from `.pyx`
 
-A generated C source file is included so ordinary users do not need Cython at install time. If you want to regenerate the extension from the `.pyx` source during development:
+A generated C source file is included so ordinary users do not need Cython in installation.
+If you want to rebuild the extension from the `.pyx` source during development:
 
 ```bash
 pip install -e .[dev]
@@ -114,7 +116,7 @@ Compute a median consensus embedding from precomputed base embeddings.
 
 Returns:
 
-- `consensus_embedding`: final embedding returned by metric MDS
+- `consensus_embedding`: final embedding returned by MDS
 - `consensus_distance_matrix`: consensus pairwise distance matrix
 - `info` (optional): backend name, convergence flag, iteration count, objective value, MDS stress, and basic shape metadata
 
@@ -126,7 +128,6 @@ Notes:
 
 - `random_state` in `tsnemce` controls the generation of per-run seeds
 - `tsne_kwargs` is forwarded to scikit-learn's `TSNE`
-- `init` defaults to `"random"` inside `tsnemce` to preserve run-to-run stochasticity, but you can override it explicitly
 
 ### `umapmce(data, n_runs, ...)`
 
@@ -136,19 +137,10 @@ Notes:
 
 - `random_state` in `umapmce` controls the generation of per-run seeds
 - `umap_kwargs` is forwarded to `umap.UMAP`
-- `init` defaults to `"random"` inside `umapmce` to preserve run-to-run stochasticity, but you can override it explicitly
-
-### Backward-compatible alias
-
-```python
-from mcepy import MCE
-```
-
-`MCE` is an alias of `drmce`, kept for compatibility with the paper repository's original naming.
 
 ## Citation
 
-If you use `mcepy`, cite the MCE paper:
+If you use `mcepy`, please cite the MCE paper:
 
 ```text
 @article{medianconsensusembedding,
