@@ -108,7 +108,7 @@ consensus_embedding, consensus_distance, info = umapmce(
 )
 ```
 
-## API
+## Functions
 
 ### `drmce(base_embeddings, ...)`
 
